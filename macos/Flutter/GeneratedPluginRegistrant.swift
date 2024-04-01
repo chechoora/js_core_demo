@@ -5,8 +5,8 @@
 import FlutterMacOS
 import Foundation
 
-import flutter_jscore
+import flutter_js
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  FlutterJscorePlugin.register(with: registry.registrar(forPlugin: "FlutterJscorePlugin"))
+  FlutterJsPlugin.register(with: registry.registrar(forPlugin: "FlutterJsPlugin"))
 }

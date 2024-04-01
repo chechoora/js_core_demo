@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:oktoast/oktoast.dart';
 
-Future<bool> alert(BuildContext context, String message, {String okLabel = 'Ok'}) {
+Future<bool?> alert(BuildContext context, String message, {String okLabel = 'Ok'}) {
   return showDialog<bool>(
       context: context,
       builder: (context) {
         return AlertDialog(
           content: Text(message),
           actions: [
-            RaisedButton(
+            ElevatedButton(
               child: Text(okLabel),
               onPressed: () {
                 Navigator.pop(context, true);
@@ -27,7 +27,7 @@ void _showToastInternal(
   String message,
   Color fgColor,
   Color bgColor, [
-  int duration,
+  int duration = 1,
 ]) {
   showToastWidget(
     Container(

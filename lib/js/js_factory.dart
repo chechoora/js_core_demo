@@ -1,8 +1,9 @@
 import 'dart:ffi';
 
-import 'package:flutter_jscore/flutter_jscore.dart';
-import 'package:flutter_jscore/jscore/js_context.dart';
-import 'package:flutter_jscore/jscore/js_object.dart';
+import 'package:flutter_js/javascriptcore/jscore/js_class.dart';
+import 'package:flutter_js/javascriptcore/jscore/js_context.dart';
+import 'package:flutter_js/javascriptcore/jscore/js_object.dart';
+import 'package:flutter_js/javascriptcore/jscore/js_value.dart';
 import 'package:js_core_demo/model.dart';
 
 class JsObjectFactory {

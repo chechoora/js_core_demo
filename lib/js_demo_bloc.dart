@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +13,7 @@ class JsDemoBloc extends Cubit<JsDemoState> {
     _loadData();
   }
 
-  JsValidator _jsValidator;
+  late JsValidator _jsValidator;
   final AssetBundle assetBundle;
   final GuestRepository guestRepository;
 

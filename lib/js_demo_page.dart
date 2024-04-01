@@ -12,10 +12,10 @@ class JsDemoPage extends StatefulWidget {
 }
 
 class _JsDemoPageState extends State<JsDemoPage> {
-  JsDemoBloc _jsDemoBloc;
+  late final JsDemoBloc _jsDemoBloc;
 
-  int _pieces;
-  String _topping;
+  int? _pieces;
+  String? _topping;
   bool _hasGluten = false;
 
   final Set<Guest> pickedGuests = {};
@@ -28,7 +28,7 @@ class _JsDemoPageState extends State<JsDemoPage> {
 
   @override
   void dispose() {
-    _jsDemoBloc?.close();
+    _jsDemoBloc.close();
     super.dispose();
   }
 
@@ -84,8 +84,7 @@ class _JsDemoPageState extends State<JsDemoPage> {
               _buildGlutenCheck(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: RaisedButton(
-                  color: Colors.blue,
+                child: ElevatedButton(
                   child: Text(
                     'Validate',
                     style: TextStyle(fontSize: 20.0, color: Colors.white),
@@ -93,7 +92,7 @@ class _JsDemoPageState extends State<JsDemoPage> {
                   onPressed: () {
                     if (_cakeIsDone()) {
                       _jsDemoBloc.validateCake(
-                        Cake(_pieces, _topping, _hasGluten),
+                        Cake(_pieces!, _topping!, _hasGluten),
                         pickedGuests.toList(),
                       );
                     }

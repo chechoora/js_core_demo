@@ -1,6 +1,7 @@
+import 'package:flutter_js/javascriptcore/flutter_jscore.dart';
+import 'package:flutter_js/javascriptcore/jscore/js_context.dart';
 import 'package:js_core_demo/js/js_factory.dart';
 import 'package:js_core_demo/model.dart';
-import 'package:flutter_jscore/flutter_jscore.dart';
 
 class JsValidator {
   JsValidator(this.jsScript);
@@ -27,7 +28,7 @@ class JsValidator {
     return result;
   }
 
-  String _getContextException(JSContext context) {
+  String? _getContextException(JSContext context) {
     final exceptionValue = context.exception.getValue(context);
     if (exceptionValue.isNull) {
       return null;
@@ -45,7 +46,7 @@ class JsValidator {
     for (var i = 0; i < count; i++) {
       final propertyObject = jsObject.getPropertyAtIndex(i).toObject();
       final guestName = propertyObject.getProperty('name').string;
-      results.add(guestName);
+      results.add(guestName ?? '');
     }
     return ValidationResult('${results.join(', ')} may eat cake', true);
   }
